@@ -1,22 +1,3 @@
-AWSTemplateFormatVersion: '2010-09-09'
-Description: 'CloudFormation template to create a S3'
-
-Resources:
-  salaryLupin:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: !Sub ${AWS::StackName}-salarylupin-${AWS::AccountId}
-      WebsiteConfiguration:
-        IndexDocument: index.html
-
-  BucketPolicy:
-    Type: AWS::S3::BucketPolicy
-    Properties:
-      Bucket: !Ref salaryLupin
-      PolicyDocument:
-        Statement:
-          - Sid: PublicReadGetObject
-            Effect: Allow
-            Principal: '*'
-            Action: s3:GetObject
-            Resource: !Sub arn:aws:s3:::${salaryLupin}/*
+template-file-path: git-sync-template.yaml
+parameters: {}
+tags: {}
