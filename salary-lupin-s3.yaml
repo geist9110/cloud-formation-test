@@ -1,3 +1,6 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'CloudFormation template to create a S3'
+
 Resources:
   salaryLupin:
     Type: AWS::S3::Bucket
