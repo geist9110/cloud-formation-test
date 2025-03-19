@@ -1,7 +1,7 @@
 Resources:
-  frontend:
+  s3:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub ${AWS::StackName}-frontend-${AWS::AccountId}
+      BucketName: !Sub ${AWS::StackName}-s3-${AWS::AccountId}
       WebsiteConfiguration:
         IndexDocument: index.html
