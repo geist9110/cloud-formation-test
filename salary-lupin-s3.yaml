@@ -1,5 +1,5 @@
 Resources:
-  s3:
+  S3Bucket:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub ${AWS::StackName}-s3-${AWS::AccountId}
@@ -10,7 +10,7 @@ Resources:
         IgnorePublicAcls: false
         BlockPublicPolicy: false
         RestrictPublicBuckets: false
-        
+
   S3BucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
@@ -21,4 +21,5 @@ Resources:
           - Effect: Allow
             Principal: "*"
             Action: "s3:GetObject"
-            Resource: !Sub arn:aws:s3:::${AWS::StackName}-s3-${AWS::AccountId}/*
+            Resource: 
+              - !Sub arn:aws:s3:::${AWS::StackName}-s3-${AWS::AccountId}/*
